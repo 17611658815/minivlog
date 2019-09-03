@@ -1,0 +1,26 @@
+<view class='nav-wrap' style='height: {{height*2 + 20}}px;'>
+    <view class="searchBox" style='height:{{capsule.height-1}}px;position: absolute; top:{{capsule.top}}px; left:{{left}}px ;' wx:if='{{!navbarData.showCapsule}}'>
+        <image class="search_icon" src='../../images/search.png'></image>
+        <input placeholder="搜索" placeholder-class="placeActive"></input>
+    </view>
+
+    <view wx:if='{{navbarData.showCapsule && !navbarData.isback}}'>
+        <view class='nav-title' style='line-height: {{height*2 + 44}}px;'>{{navbarData.title}}</view>
+        <view style='display: flex; justify-content: space-around;flex-direction: column'>
+            <view bindtap='_navback' class="navback" style='width:{{windowWidth}}px;height:{{capsule.height-1}}px;position: absolute; top:{{capsule.top}}px; left:{{left}}px;'>
+                <view bindtap='_navback' wx:if='{{!share}}'>
+                    <image src='../../images/icon_left.png' mode='aspectFill' class='back-home'></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:if='{{navbarData.showCapsule && navbarData.isback}}'>
+        <view class='nav-title' style='line-height: {{height*2 + 44}}px;'>{{navbarData.title}}</view>
+        <view style='display: flex; justify-content: space-around;flex-direction: column'>
+            <view bindtap='_navback' class="navback" style='width:{{windowWidth}}px;height:{{capsule.height-1}}px;position: absolute; top:{{capsule.top}}px; left:{{left}}px;'>
+            </view>
+        </view>
+    </view>
+</view>
+<view style='height:{{height*2 + 20}}px;'></view>
+

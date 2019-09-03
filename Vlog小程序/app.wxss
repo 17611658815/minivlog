@@ -1,0 +1,147 @@
+/**app.wxss**/
+page{
+    background: #f7f7f7;
+}
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.width100{
+    width: 100%;
+    background: #ffffff;
+}
+.width90{
+    width: 92%;
+}
+.dpfC {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dpf {
+    display: flex;
+    align-items: center;
+}
+
+.dpfb {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fontSize-32 {
+    font-size: 32rpx;
+}
+
+.fontSize-30 {
+    font-size: 30rpx;
+}
+
+.fontSize-34 {
+    font-size: 34rpx;
+}
+
+.fontSize-36 {
+    font-size: 36rpx;
+}
+
+.fontSize-26 {
+    font-size: 26rpx;
+}
+
+.fontSize-28 {
+    line-height: 46rpx;
+    font-size: 28rpx;
+}
+
+.fontSize28 {
+    font-size: 28rpx;
+}
+
+.fontSize-22 {
+    font-size: 22rpx;
+}
+.fontSize-20 {
+    font-size: 20rpx;
+}
+
+.fontSize-24 {
+    font-size: 24rpx;
+}
+
+.fontWeight5 {
+    font-weight: 500 !important;
+}
+
+.color1 {
+    color: #333;
+}
+
+.color2 {
+    color: #666;
+}
+
+.color3 {
+    color: #999;
+}
+
+.color4 {
+    color: #fa5454;
+}
+.color5 {
+    color: #5994f7;
+}
+.color6{
+    color: #ff4a26;
+}
+.padding20{
+    padding: 20rpx 0;
+}
+.marginTop{
+    margin-top: 20rpx;
+}
+.marginBtm{
+    margin-bottom: 20rpx;
+}
+.marginLeft{
+    margin-left: 20rpx;
+}
+.marginRight{
+    margin-right: 20rpx;
+}
+
+/* 选中 */
+
+.checkedClass {
+    background: #6297f3 !important;
+}
+.selectActive{
+    color: #6297f3!important;
+}
+.paddingBtm90 {
+    padding-bottom: 90rpx;
+}
+
+.paddingBtm180 {
+    padding-bottom: 150rpx;
+}
+
+/* 溢出省略 */
+
+.white_noWrap {
+   word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 2; /** 显示的行数 **/
+  overflow: hidden;  /** 隐藏超出的内容 **/
+}
+
+

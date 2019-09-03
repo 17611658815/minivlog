@@ -1,0 +1,96 @@
+<!--index.wxml-->
+<header-nav navbar-data='{{nvabarData}}' capsule-data='{{capsule}}'></header-nav>
+<view class="container">
+    <!-- 头部导航 -->
+    <view class='scroll-x-content' style="top:{{height*2 + 20}}px">
+        <scroll-view scroll-x="true" 
+            class='scroll-x-box' 
+            scroll-with-animation="true" 
+            id="scroll-view" 
+            scroll-left="{{ scrollLeft }}">
+            <view class='scroll-x-content-item' 
+                bindtap='swatchTab' 
+                data-id="{{item.id}}" 
+                id="item-{{index}}" 
+                data-index="{{index}}" 
+                wx:for='{{navArr}}' 
+                wx:key='index'>
+                <view class="dpfC">
+                    <text class='{{currentTab==index? "active":"active2"}}'>{{item.name}}</text>
+                    <view wx:if='{{currentTab==index}}' class='soloder'></view>
+                </view>
+            </view>
+        </scroll-view>
+        <image catchtap="ShowList" class="icon_down" src="../../images/icon_down.png"></image>
+        <view class="list_container dpfC padding20" wx:if='{{isShadeShow}}'>
+            <view class="list_container_box width90">
+                <view bindtap="swatchTab" 
+                data-id="{{item.id}}" 
+                data-index="{{index}}"
+                id="item-{{index}}"  
+                wx:for='{{navArr}}'
+                class="list_container_box_item {{currentTab==index ? 'selectActive':''}}">{{item.name}}</view>
+            </view>
+        </view>
+    </view>
+    <!-- 列表 -->
+    <view class="videoList width100 {{isIphoneX ? 'paddingBtm180':'paddingBtm90'}}">
+        <view class="videoList_item width100 dpfC" wx:for='{{data.list}}'  wx:key="key">
+            <video id="myVideo" 
+            autoplay='{{autoplay}}' 
+            class="video_item" 
+            src="{{item.shipin}}"
+            bindended='onbindended'
+            wx:if='{{item.play}}'>
+            </video>
+            <view class="videoList_item_thumb width100" wx:else>
+                <!-- 标题 -->
+                <view class="videoList_item_title">
+                    航拍国内著名景点，3分钟让你了解最美中国航拍国内著名景点，3分钟让你了解最美中国
+                </view>
+                <!-- 封面壁纸 -->
+                <image mode="aspectFill" class="thumbPic" src='{{item.thumb}}'></image>
+                <!-- play播放 -->
+                <image catchtap="videoPlay" data-index='{{index}}' class="icon_play_btn" src="../../images/icon_play_btn.png"></image>
+                <!-- 时长-播放量 -->
+                <view class="videoTime dpf fontSize-22">
+                    <view class="dpf"> <image src="../../images/icon_eyes.png"></image> 19.5万</view>
+                    <view class="marginLeft">3:00</view>
+                </view>
+                <!-- 来源头像 -->
+                <view class="portrait dpfC">
+                    <image src="http://pic.39yst.com/group1/M00/5F/AF/Pb832l1ohKGAWa4FAABysHWywKM376.jpg"> </image>
+                </view>
+                <!--  -->
+            </view>
+            <view class="videoList_item_text width90 dpfb">
+                <view class="addAttention dpf">
+                   <image class="icon_add_green" src='../../images/icon_add_green.png'></image> 关注
+                </view>
+                <view class="shareInfor dpf fontSize-20 color3">
+                    <view class="dpfC"> 
+                        <image src="../../images/icon-option-dot.png"></image>
+                    </view>
+                    <view class="dpfC"> 
+                        <image src="../../images/icon_fx_pl.png"></image>
+                        <text>10</text>
+                    </view>
+                    <view class="dpfC"> 
+                        <image src="../../images/icon_share_pyq_x.png"></image>
+                        <text>1800</text>
+                    </view>
+                    <view class="dpfC"> 
+                        <image src="../../images/icon-wechat.png"></image>
+                        <text>506</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="Boxshade" catch:touchmove catchtap="ShowList" wx:if='{{isShadeShow}}'>
+
+</view>
+<!-- 底部导航 -->
+<bottom-nav navbar-data='0'></bottom-nav> 

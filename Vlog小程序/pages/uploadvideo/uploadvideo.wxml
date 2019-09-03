@@ -1,0 +1,5 @@
+<!--pages/uploadvideo/uploadvideo.wxml-->
+<header-nav navbar-data='{{nvabarData}}' capsule-data='{{capsule}}'></header-nav>
+<text>pages/uploadvideo/uploadvideo.wxml</text>
+<!-- 底部导航 -->
+<bottom-nav navbar-data='2'></bottom-nav> 
