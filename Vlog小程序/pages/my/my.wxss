@@ -1,1 +1,131 @@
-/* pages/my/my.wxss */
+/* pages/tabber/may/may.wxss */
+page{
+    background: #f8f8f8;
+}
+.headerBox{
+    height: 500rpx;
+    position: relative;
+}
+.shade{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.bgImg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.userPic{
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 50%;
+}
+.pic_woman{
+    width: 100%;
+    height: 100%;
+  
+}
+.defaultuserPic{
+     width: 130rpx;
+    height: 130rpx;
+    border-radius: 50%;
+    border: 2rpx solid #ffffff;
+}
+.openVip{
+    border-radius: 4rpx;
+    background: #f9e9e4;
+    
+}
+.paddingTop30{
+    padding-top: 30rpx;
+}
+.padding40{
+    padding: 40rpx 0;
+}
+.vip_icon image{
+    width: 34rpx;
+    height: 36rpx;
+}
+.other_nav_icon image{
+    width: 100%;
+    height: 100%;
+}
+.otherList{
+    display: flex;
+     align-items: center;
+    justify-content: space-around;
+}
+.other_nav_item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+.other_nav_icon{
+    width: 60rpx;
+    height: 60rpx;
+}
+.icon_box{
+    width: 40rpx;
+    height: 40rpx;
+    /* background: #ff4a26; */
+}
+.icon_box image{
+    width: 100%;
+    height: 100%;
+}
+.content_box{
+    height: 110rpx;
+    display: flex;
+    align-items: center;
+}
+.borderACtive{
+    border-bottom: 2rpx solid #e0e0e0;
+}
+.marginBottom{
+    border-bottom: 20rpx solid #f8f8f8;
+}
+.loginBtn{
+    background: none;
+    font-size: 34rpx;
+    color: #ffffff;
+     margin-left: 0!important;
+    margin-right: 0!important;
+}
+button::after{
+    width: 100rpx;
+    border: none;
+}
+.reelIcon{
+    width: 40rpx;
+    height:35rpx; 
+}
+.reelIcon image{
+    width: 100%;
+    height: 100%;
+}
+.icon_right{
+    width: 18rpx;
+    height: 35rpx;
+}
+.shere_btn{
+    width: 300rpx;
+    height: 60rpx;
+    color: #ffffff;
+    font-size: 28rpx;
+    background: #08B706;
+    justify-content: center;
+    border-radius: 30rpx;
+}
+.shere_btn image{
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+}

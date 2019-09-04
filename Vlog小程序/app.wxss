@@ -101,6 +101,9 @@ page{
 .color6{
     color: #ff4a26;
 }
+.padding30{
+    padding: 30rpx 0;
+}
 .padding20{
     padding: 20rpx 0;
 }
@@ -129,8 +132,8 @@ page{
     padding-bottom: 90rpx;
 }
 
-.paddingBtm180 {
-    padding-bottom: 150rpx;
+.paddingBtm150 {
+    padding-bottom: 130rpx;
 }
 
 /* 溢出省略 */
@@ -143,5 +146,7 @@ page{
   -webkit-line-clamp: 2; /** 显示的行数 **/
   overflow: hidden;  /** 隐藏超出的内容 **/
 }
+
+
 
 

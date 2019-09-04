@@ -34,19 +34,20 @@
         </view>
     </view>
     <!-- 列表 -->
-    <view class="videoList width100 {{isIphoneX ? 'paddingBtm180':'paddingBtm90'}}">
-        <view class="videoList_item width100 dpfC" wx:for='{{data.list}}'  wx:key="key">
-            <video id="myVideo" 
+    <view class="videoList width100">
+        <view class="videoList_item width100 dpfC" wx:for='{{data.list}}' bindtap="goVideoDetaile"  wx:key="key">
+            <!-- <video id="myVideo" 
             autoplay='{{autoplay}}' 
             class="video_item" 
             src="{{item.shipin}}"
             bindended='onbindended'
             wx:if='{{item.play}}'>
-            </video>
-            <view class="videoList_item_thumb width100" wx:else>
+            </video> -->
+            <!-- <view class="videoList_item_thumb width100" wx:else> -->
+            <view class="videoList_item_thumb width100">
                 <!-- 标题 -->
                 <view class="videoList_item_title">
-                    航拍国内著名景点，3分钟让你了解最美中国航拍国内著名景点，3分钟让你了解最美中国
+                    航拍国内著名景点，3分钟让你了解最美中国航拍国内著名景点
                 </view>
                 <!-- 封面壁纸 -->
                 <image mode="aspectFill" class="thumbPic" src='{{item.thumb}}'></image>
@@ -93,4 +94,4 @@
 
 </view>
 <!-- 底部导航 -->
-<bottom-nav navbar-data='0'></bottom-nav> 
+<!-- <bottom-nav navbar-data='0'></bottom-nav>  -->

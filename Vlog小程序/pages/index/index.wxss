@@ -85,9 +85,11 @@
 }
 /* 视频列表 */
 .videoList{
+    background: #f8f8f8;
     margin-top: 100rpx;
 }
 .videoList_item{
+    margin-bottom: 20rpx;
     height: 500rpx;
 }
 .videoList_item_thumb{

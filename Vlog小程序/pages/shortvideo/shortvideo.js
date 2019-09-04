@@ -1,27 +1,26 @@
 // pages/shortvideo/shortvideo.js
 var start;
+const data = require("list.js")
 const app = getApp()
 Page({
-
     /**
      * 页面的初始数据
      */
     data: {
-        current:0,//
-        windowW:0,
-        height:'',
-        isplay:true,
+        current:0,//当前播放索引
+        height:'',//video高度
+        isplay:false,//播放状态
         primary:true,//缓冲进度条
-        percent:0,
+        percent:0,//进度条
         nvabarData: {
             showCapsule: 1, //主页头部 0显示搜索 1显示标题
-            title: '短视频',
+            title: '短视频',//自定义导航标题
             isback: 1, //showCapsule为1 0为展示后退 1为不展示
         },
         controls: false,
         isIphoneX: false,
+        data:[],//视频列表
     },
-
     /**
      * 生命周期函数--监听页面加载
      */
@@ -34,24 +33,18 @@ Page({
                     that.setData({
                         height: res.windowHeight - 75,
                         isIphoneX: app.globalData.isIphoneX,
-                        windowW: res.windowWidth,
-                        isIphoneX: app.globalData.isIphoneX
                     });
                 }else{
                     that.setData({
                         height: res.windowHeight - 50,
                         isIphoneX: app.globalData.isIphoneX,
-                        windowW: res.windowWidth,
-                        isIphoneX: app.globalData.isIphoneX
                     });
                 }
-               
-               
-            }, fail(err) {
-                console.log(err);
             }
         })
-      
+        that.setData({
+            data:data.data.list
+        })
     },
     onReady: function (res) {
         this.myVideo = wx.createVideoContext('myVideo')
@@ -64,29 +57,16 @@ Page({
     },
     // 视频播放时间更新
     timeupdate: function (e) {
-        var val = e.detail.currentTime;
+        var tim = e.detail.currentTime;
         var max = e.detail.duration;
-        var percent = Math.round(val / max * 10000) / 100;
-        this.setData({ percent: percent })
+        var percent = Math.round(tim / max * 10000) / 100;
+        this.setData({ percent: percent });
     },
     onBindpause(){
         this.setData({
             isplay: true
         })
         console.log('暂停')
-    },
-    onBindprogress(e){
-        if (this.data.progress > this.data.windowW){
-            this.setData({
-                primary: false,
-                progress:0,
-            })
-        }else{
-            this.setData({
-                progress: this.data.windowW * e.detail.buffered
-            })
-        }
-       
     },
     videoPlay(){
         this.myVideo.play()
@@ -97,13 +77,17 @@ Page({
     // 播放上一个抖音
     pre: function () {
         console.log('上一个')
-        // this.changeSubject(this.data.current - 1);
+        this.setData({
+            current: this.data.current - 1
+        })
     },
 
     // 播放下一个抖音
     next: function () {
         console.log('下一个')
-        // this.changeSubject(this.data.current + 1);
+        this.setData({
+            current: this.data.current + 1
+        })
     },
 
     // 下面主要模仿滑动事件
@@ -137,11 +121,11 @@ Page({
         }
         else if (Math.abs(Y) > Math.abs(X) && Y > 0) {
             console.log("top 2 bottom");
-            this.pre()
+            this.pre();
         }
         else if (Math.abs(Y) > Math.abs(X) && Y < 0) {
             console.log("bottom 2 top");
-            this.next()
+            this.next();
         }
     },
 

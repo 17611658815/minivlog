@@ -1,2 +1,41 @@
-<!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<!--pages/tabber/may/may.wxml-->
+<!-- <header-nav navbar-data='{{nvabarData}}' capsule-data='{{capsule}}'></header-nav> -->
+<view class='container'>
+    <view class='headerBox width100 dpfC' style="background:rgba(0,0,0,.5)">
+        <image class="bgImg" src="{{url}}"></image>
+        <view class="shade"></view>
+        <view class='width90'>
+            <!-- 头像昵称 -->
+            <view class='dpf padding40' wx:if='{{userInfo}}'>
+                <image class='userPic' src='../../images/pic_woman.png'></image>
+                <text class='fontSize-34 color1'>{{userInfo.nickname}}</text>
+            </view>
+            <view class='dpf padding40' style="z-index:99" wx:else>
+                <image class='defaultuserPic' style="z-index:99" src='{{url}}'></image>
+                <button class="loginBtn"  style="z-index:99" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindgetUserInfo">登录/注册</button>
+            </view>
+        </view>
+        <view class='width90 dpfb' style='padding-bottom:30rpx;z-index:99'>
+                <view class="shere_btn dpf">
+                    <image src='../../images/icon_share_friend_white.png'></image> 分享我的主页
+                </view>
+        </view>
+    </view>
+   
+    <view class='width100 dpfC'>
+        <navigator class='content_box width90' hover-class='none' url='{{item.path}}'>
+            <view class='dpfb width100'>
+                <view class='dpf'>
+                    <view class='marginRight'>
+                        <image style="width:40rpx;height:40rpx;" src="../../images/icon-my-collect.png"></image>
+                    </view>
+                    <view class='fontSize-30 color1'>我的收藏</view>
+                </view>
+                <image class="icon_right" src='../../images/icon_right.png'></image>
+            </view>
+        </navigator>
+    </view>
+   
+</view>
+
+

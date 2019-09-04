@@ -6,7 +6,7 @@ const app = getApp()
 Page({
     data: {
         height: "",
-        currentTab:0,
+        currentTab:1,
         // 自定义导航参数
         nvabarData: {
             showCapsule: 0, //主页头部 0显示搜索 1显示标题
@@ -88,6 +88,24 @@ Page({
         this.handleScroll(index)
         this.setData({
             currentTab: index
+        })
+    },
+    onPullDownRefresh: function () {
+        var that = this;
+        wx.vibrateShort()
+        wx.showNavigationBarLoading() //在标题栏中显示加载
+
+        setTimeout(function () {
+            wx.hideNavigationBarLoading() //完成停止加载
+            wx.stopPullDownRefresh() //停止下拉刷新
+            that.onLoad()
+
+        }, 1500);
+    },
+    // 视频详情
+    goVideoDetaile(){
+        wx.navigateTo({
+            url: '/pages/videoDetaile/videoDetaile',
         })
     },
     ShowList(){

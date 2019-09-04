@@ -1,0 +1,158 @@
+<!--pages/videoDetaile/videoDetaile.wxml-->
+<header-nav navbar-data='{{nvabarData}}' capsule-data='{{capsule}}'></header-nav>
+<view class="container {{isIphoneX ? 'paddingBtm150':'paddingBtm90'}}">
+    <view class="videoBox width100" style="width:100%;height:{{autoHeight}}px;">
+        <video autoplay="true" id="myVideo" danmu-list="{{danmuList}}" enable-danmu='{{isdanmu}}' style="width:100%;height:{{autoHeight}}px;" src="http://gslb.miaopai.com/stream/f33PK0KFIHwdwkppCMbxvtAneoD8MYSQGGNHHw__.mp4">
+
+            <cover-image bindtap="comment" class="barrage_button" src="../../images/icon_barrage_button.png"></cover-image>
+
+        </video>
+    </view>
+    <view class="tab width100 dpf">
+        <view data-current="0" bindtap="swatchTab">
+            <view class='{{current==0? "active":"active2"}}'>视频</view>
+            <view wx:if='{{current==0}}' class='soloder'></view>
+        </view>
+        <view data-current="1" bindtap="swatchTab">
+            <view class='{{current==1? "active":"active2"}}'>评论</view>
+            <view wx:if='{{current==1}}' class='soloder'></view>
+        </view>
+    </view>
+    <!-- 推荐视频列表 -->
+    <view class="recommendList dpfC" wx:if="{{current==0}}">
+        <view class="videoMsg width100 dpfC padding20">
+            <view class="fontSize-36 fontWeight5 width90">广场舞心里藏着你的步骤分解视频</view>
+            <view class="fontSize-24  width90 color3 marginTop">99926人在看 · 06-08 05:17</view>
+        </view>
+        <view class="width90 dpf padding20 sherec_ontainer">
+            <!-- 收藏 -->
+            <view class="dpfC shereBox fontSize-20" bindtap="care">
+                <image src="../../images/icon_share_collect_s.png" wx:if='{{iscare}}'></image>
+                <image src="../../images/icon_share_collect_x.png" wx:else></image>
+
+                <text>896</text>
+            </view>
+            <!-- 弹幕 -->
+            <view class="dpfC shereBox fontSize-20" bindtap="sendDanmuOff">
+                <image src="../../images/icon_barrage_aa.png" wx:if='{{isdanmu}}'></image>
+                <image src="../../images/icon_barrage_a.png" wx:else></image>
+                <text>132</text>
+            </view>
+            <!-- 赏 -->
+            <view class="dpfC shereBox fontSize-20">
+                <image src="../../images/icon_new_zs.png"></image>
+                <text>8</text>
+            </view>
+            <!-- 分享朋友圈 -->
+            <view class="dpfC shereBox fontSize-20">
+                <image src="../../images/icon_share_pyq_x.png"></image>
+                <text>1965</text>
+            </view>
+            <view class="dpfC shereBox fontSize-20">
+                <image src="../../images/icon-option-dot.png"></image>
+            </view>
+            <!-- 分享还有 -->
+            <view class="dpfC shereBox fontSize-20">
+                <button class="shere_btn dpf btn_on">
+                    <image src='../../images/icon_share_friend_white.png' style="margin-right:10rpx;"></image> 分享好友
+                </button>
+            </view>
+        </view>
+        <view class="width90 dpfb">
+            <view class="userPic dpf fontSize-32 color3">
+                <image class="marginRight" src='../../images/pic_woman.png'></image> 小砍刀
+            </view>
+            <view class="attention dpf fontSize28" wx:if='{{!isattention}}' bindtap="attention">
+                <image src='../../images/icon_add_green.png' style="margin-right:5rpx;"></image> 关注
+            </view>
+        </view>
+        <view class="recommend marginTop width100 dpfC">
+            <view class="recommend_item width90 dpf padding30 marginBtm" wx:for='{{10}}'>
+                <view class="recommend_item_img">
+                    <image src="http://img.39yst.com/uploads/content/20170207110624528.jpg"></image>
+                </view>
+                <view class="recommend_item_text marginLeft">
+                    <view class="fontSize-36 white_noWrap">广场舞心里藏着你的步骤分解视频</view>
+                    <view class="fontSize-24 color3">99926人在看</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 评论列表 -->
+    <view class="recommendList dpfC width100" wx:if="{{current==1}}">
+        <view class="width90 dpf padding20 sherec_ontainer">
+            <!-- 收藏 -->
+            <view class="dpfC shereBox fontSize-20" bindtap="care">
+                <image src="../../images/icon_share_collect_s.png" wx:if='{{iscare}}'></image>
+                <image src="../../images/icon_share_collect_x.png" wx:else></image>
+
+                <text>896</text>
+            </view>
+            <!-- 弹幕 -->
+            <view class="dpfC shereBox fontSize-20" bindtap="sendDanmuOff">
+                <image src="../../images/icon_barrage_aa.png" wx:if='{{isdanmu}}'></image>
+                <image src="../../images/icon_barrage_a.png" wx:else></image>
+                <text>132</text>
+            </view>
+            <!-- 赏 -->
+            <view class="dpfC shereBox fontSize-20">
+                <image src="../../images/icon_new_zs.png"></image>
+                <text>8</text>
+            </view>
+            <!-- 分享朋友圈 -->
+            <view class="dpfC shereBox fontSize-20">
+                <image src="../../images/icon_share_pyq_x.png"></image>
+                <text>1965</text>
+            </view>
+            <view class="dpfC shereBox fontSize-20">
+                <image src="../../images/icon-option-dot.png"></image>
+            </view>
+            <!-- 分享还有 -->
+            <view class="dpfC shereBox fontSize-20">
+                <button class="shere_btn dpf btn_on">
+                    <image src='../../images/icon_share_friend_white.png' style="margin-right:10rpx;"></image> 分享好友
+                </button>
+            </view>
+        </view>
+        <view class="recommend marginTop width100 dpfC">
+           <view class="commentBox" id="comment">
+            <view class="commentBox_info">
+                <view class="commentBox_info_item">
+                    <view class="commentBox_info_item_left">
+                        <view>
+                            <image src="../../images/pic_woman.png"></image>
+                        </view>
+                    </view>
+                    <view class="commentBox_info_item_right">
+                        <view class="userName">张三</view>
+                        <view class="userMsg">6666666666</view>
+                        <view class="addMsgTime">
+                            <view>5分钟前</view> 
+                            <view class="zan dpf" data-id="{{item.id}}" data-index='{{index}}' bindtap="clickZan">
+                                <!-- <image s-if="{{item.iszan}}" src="../../images/zan.png"></image> -->
+                                <image s-else src="../../images/nozan.png"></image>
+                                <view>69</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        </view>
+    </view>
+    
+</view>
+
+<!-- 弹幕 -->
+<view class="inputBox {{isIphoneX ? 'paddingBtm':''}}" wx:if='{{isfocus}}' style="bottom:{{Danmubottom}}px">
+    <input class="input" value="{{mssage}}" auto-focus adjust-position="{{false}}" cursor-spacing="90" type='text' bindfocus='onDanmubindfocus' bindconfirm='bindSendDanmu' bindblur="onDanmubindblur" placeholder="来一发弹幕吧..." focus="{{isfocus}}" placeholder-class='plhder_class'
+        bindinput="onDanmutMsg" placeholder-style='color:#9a9a9a; font-size: 14px;padding-left:20rpx;' />
+
+    <view class="addMsg" catchtap="bindSendDanmu">发布</view>
+</view>
+<!-- 评论 -->
+<view class="inputBox {{isIphoneX ? 'paddingBtm':''}}" wx:if='{{!isfocus}}' style="bottom:{{Commentbottom}}px">
+    <input class="input" value="{{mssage}}" adjust-position="{{false}}" cursor-spacing="90" type='text' bindfocus='onCommentbindfocus' bindblur="onCommenbindblur" placeholder="期待你的精彩评论..." placeholder-class='plhder_class' bindinput="oncommentMsg" placeholder-style='color:#9a9a9a; font-size: 14px;padding-left:20rpx;'
+    />
+    <view class="addMsg">发布</view>
+</view>
